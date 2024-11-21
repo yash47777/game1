@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GTA Mini Game</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f9;
+      color: #333;
+      padding: 20px;
+      text-align: center;
+    }
+    #gameOutput {
+      border: 1px solid #ccc;
+      padding: 20px;
+      margin: 20px auto;
+      width: 80%;
+      background: #fff;
+    }
+    button {
+      padding: 10px 20px;
+      margin: 10px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h1>GTA Mini Game</h1>
+  <div id="gameOutput">
+    <p>You are in Los Santos. What would you like to do?</p>
+  </div>
+  <button onclick="chooseOption('rob')">Rob a store</button>
+  <button onclick="chooseOption('car')">Steal a car</button>
+  <button onclick="chooseOption('police')">Fight the police</button>
+
+  <script>
+    function chooseOption(action) {
+      const output = document.getElementById('gameOutput');
+      let response = "";
+
+      switch (action) {
+        case 'rob':
+          response = "You robbed a store and made $1,000! But now the police are after you!";
+          break;
+        case 'car':
+          response = "You stole a car and drove away, but it ran out of fuel!";
+          break;
+        case 'police':
+          response = "You fought the police and escaped, but you lost some health!";
+          break;
+        default:
+          response = "You are wandering the streets of Los Santos.";
+      }
+
+      output.innerHTML = `<p>${response}</p>`;
+    }
+  </script>
+</body>
+</html>
